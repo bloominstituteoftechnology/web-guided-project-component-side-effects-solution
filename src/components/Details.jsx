@@ -6,18 +6,41 @@ export default function Details(props) {
   const { friendId, close } = props
   const [details, setDetails] = useState(null)
 
+  // TASK 4 - Create a side effect that runs only after first render.
   useEffect(() => {
-    // create an effect that runs ONLY after first render
-    // and logs something to the console
-    console.log("you will only see me after FIRST RENDER of Details")
+    console.log('FIRST render of Details')
   }, [])
 
-  // 1- test this URL in Chrome first!
-  // 2- http://localhost:4000/friends/1?api_key=xyz
-  // 3- create an effect that gets the friends details from the API
-  // 4- on happy path, shoves the details of the friend in 'details' slice of state
+  // TASK 5 - Create a side effect that runs only after first render
+  // and puts a 'click' event handler on document.
+  // See what happens if we don't clean up.
   useEffect(() => {
-    console.log('this runs whenever friendId changes!!!!')
+    // HEY, run this code after component mounts for first time
+    const listener = e => {
+      console.log(`Clicking the body at ${e.timeStamp}`)
+    }
+    document.addEventListener('click', listener)
+
+    return () => {
+      // HEY, before this component is unmounted, run the following:
+      document.body.removeEventListener('click', listener)
+    }
+  }, [])
+
+  // TASK 6 - Create a side effect that runs after every render.
+  useEffect(() => {
+    console.log('EVERY render of Details')
+  }, [])
+
+  // TASK 7 - Create a side effect that runs when a particular variable changes.
+  useEffect(() => {
+    console.log('RENDER CAUSED BY CHANGE in friendId')
+  }, [friendId])
+
+  // TASK 8 - Use an effect to fetch the details of the current friend.
+  // The URL should end up looking like `http://localhost:4000/friends/1?api_key=xyz`
+  // On success, shove the details of the friend in `details` slice of state
+  useEffect(() => {
     axios.get(`${BASE_URL}/friends/${friendId}?api_key=${API_KEY}`)
       .then(res => {
         setDetails(res.data)
@@ -30,30 +53,6 @@ export default function Details(props) {
     // whenever any of the variables change, the effect will re-run
     [friendId]
   )
-
-  useEffect(() => {
-    // HEY, run this code after component mounts for first time
-    const callback = () => console.log('clicking!!!')
-    document.body.addEventListener('click', callback)
-
-    return () => {
-      // cleanup code
-      // HEY, before this component is unmounted, run the following:
-      document.body.removeEventListener('click', callback)
-    }
-  }, [])
-
-  useEffect(() => {
-    // HEY, run this code after every render
-    const callback = () => console.log('YOU CLICKSED!!!!!!!!!!!!!!!')
-    document.body.addEventListener('click', callback)
-
-    return () => {
-      // cleanup code
-      // HEY, before running the effect above, run the following cleanup:
-      document.body.removeEventListener('click', callback)
-    }
-  })
 
   if (!details) {
     return null
