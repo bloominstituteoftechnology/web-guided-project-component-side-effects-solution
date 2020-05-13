@@ -29,16 +29,12 @@ app.get('/friends/:id', (req, res) => {
     res.status(404).json({ message: 'No such friend!' })
   }
   else {
-    setTimeout(() => {
-      res.json(friend)
-    }, 500)
+    res.json(friend)
   }
 })
 
 app.get('/friends', (req, res) => {
-  setTimeout(() => {
-    res.json(friends.map(fr => ({ id: fr.id, name: fr.name })))
-  }, 500);
+  res.json(friends.map(fr => ({ id: fr.id, name: fr.name })))
 })
 
 app.listen(port, () => {
