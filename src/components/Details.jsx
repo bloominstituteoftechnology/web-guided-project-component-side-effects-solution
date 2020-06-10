@@ -27,7 +27,7 @@ export default function Details(props) {
     }
   }, [])
 
-  // TASK 6 - Create a side effect that runs after every render.
+  // TASK 6 - Create a side effect 🥵 that runs after every render.
   useEffect(() => {
     // console.log('AFTER EVERY RENDER OF Details')
   })
