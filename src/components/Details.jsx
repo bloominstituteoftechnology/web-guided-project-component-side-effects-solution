@@ -32,12 +32,8 @@ export default function Details(props) {
     console.log('EVERY render of Details')
   }, [])
 
-  // TASK 7 - Create a side effect that runs when a particular variable changes.
-  useEffect(() => {
-    console.log('RENDER CAUSED BY CHANGE in friendId')
-  }, [friendId])
-
-  // TASK 8 - Use an effect to fetch the details of the current friend.
+  // TASK 7 - Create a side effect that runs when a particular variable changes:
+  // Whenever props.friendId updates we should trigger a fetch for details of the friend.
   // The URL should end up looking like `http://localhost:4000/friends/1?api_key=xyz`
   // On success, shove the details of the friend in `details` slice of state
   useEffect(() => {
