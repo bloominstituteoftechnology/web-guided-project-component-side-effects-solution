@@ -54,21 +54,22 @@ export default function Details(props) {
     [friendId]
   )
 
-  if (!details) {
-    return null
-  }
-
   return (
     <div className='container'>
       <h2>Details:</h2>
-      <p>{details.name} is {details.age}</p>
-      <p>email is {details.email}</p>
-      {name} likes:
-      <ul>
-        {
-          details.likes.map((like, idx) => <li key={idx}>{like}</li>)
-        }
-      </ul>
+      {
+        details &&
+        <>
+          <p>{details.name} is {details.age}</p>
+          <p>email is {details.email}</p>
+          {name} likes:
+          <ul>
+            {
+              details.hobbies.map((like, idx) => <li key={idx}>{like}</li>)
+            }
+          </ul>
+        </>
+      }
       <button onClick={close}>Close</button>
     </div>
   )
