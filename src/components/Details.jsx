@@ -29,7 +29,7 @@ export default function Details(props) {
 
   // TASK 6 - Create a side effect 🥵 that runs after every render.
   useEffect(() => {
-    // console.log('AFTER EVERY RENDER OF Details')
+    console.log('🥵 AFTER EVERY RENDER OF Details')
   })
 
   // TASK 7 - Create a side effect 📲 that runs when a particular variable changes:
