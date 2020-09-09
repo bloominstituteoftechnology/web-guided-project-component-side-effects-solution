@@ -8,8 +8,8 @@ export default function Details(props) {
 
   // TASK 4 - Create a side effect 🥇 that runs only after first render.
   useEffect(() => {
-    console.log('🥇 ONLY AFTER FIRST RENDER')
-    return () => console.log('🥇 COMPONENT ABOUT TO DIE')
+    console.log(`🥇 EFFECT after first DOM surgery`)
+    return () => console.log(`🥇 CLEANUP of effect from first DOM surgery right before unmount`)
   }, [])
 
   // TASK 5 - Create a side effect 👻 that runs only after first render
@@ -29,7 +29,10 @@ export default function Details(props) {
 
   // TASK 6 - Create a side effect 🥵 that runs after every render.
   useEffect(() => {
-    console.log('🥵 AFTER EVERY RENDER OF Details')
+    console.log(`🥵 EFFECT after every DOM surgery`)
+    return () => {
+      console.log(`🥵 CLEANUP of the previous effect`)
+    }
   })
 
   // TASK 7 - Create a side effect 📲 that runs when a particular variable changes:
