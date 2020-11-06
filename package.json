@@ -24,9 +24,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/web-guided-project-component-side-effects-solution.git"
-  },
-  "bugs": {
-    "url": "https://github.com/LambdaSchool/web-guided-project-component-side-effects-solution/issues"
-  },
-  "homepage": "https://github.com/LambdaSchool/web-guided-project-component-side-effects-solution#readme"
+  }
 }
