@@ -9,14 +9,15 @@
 
 * Quick review of installing Axios in the project via NPM (the project has it already).
 * The usefulness of centralizing constants used across the project in their own file.
-* The Effect Hook.
 * Constructing an URL by concatenating several pieces.
 * Initializing slices of state that are lists to the empty array, so `.map` does not crash.
+* The Effect Hook.
+* Fetching data inside an Effect Hook.
+* The importance of using breakpoints or log statements inside the `.catch`.
 * Running effects after first render only.
 * Running effects after every render.
 * Running effects only after renders caused by changes in specific variables.
 * Cleaning up after effects that leave timers or listeners in the DOM.
-* The importance of using breakpoints or log statements inside the `.catch`.
 * The lifecycle of components:
   1. Render function executes.
   1. React elements are returned and put in a virtual DOM.
