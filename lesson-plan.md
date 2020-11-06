@@ -28,7 +28,7 @@
 
 See the design inside `src/design-files` and explain students what they are building.
 
-The project is design so we can comfortably observe the "life and death" of the `Details` component.
+The project is designed so we can comfortably observe the "life and death" of the `Details` component.
 
 We will flesh out the files `App.js` and `Details.js`, in that order. Follow the `👉 TASK`s.
 
